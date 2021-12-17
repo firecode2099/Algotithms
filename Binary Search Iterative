@@ -18,57 +18,60 @@ namespace ConsoleApp1
         public static int gebinary(int[] _listarray, int left ,int right , int objetive)
         {
             
-            //midle num array
-            int midle = left + (right-left) / 2;
+           
 
          
-            while (left<right)
+            while (right>left)
             
             {
-
+                //midle num array
+                int midle = _listarray.Length / 2;
                 //if equals
                 if (_listarray[midle] == objetive)
                 {
                     return midle;
+                 
 
                 }
                 
                 //if more lower
-                if (_listarray[midle] < objetive)
+                if (_listarray[midle]<objetive)
                 {
 
-                    return  left =midle+1;//step left on midel and run to right
+                    return  left =midle+2;//step left on midel and run to right
                 }
-                else
+                else if(_listarray[midle] > objetive)
                 {
 
-                    return  right=midle-1;//step left on midel and run to left
+                    return  right=midle-2;//step left on midel and run to left
                 }
+
              
-
             }
 
             return -1;
-
+            
         }
 
 
         static void Main(string[] args)
         {
-             int[] _listArray = { 1, 2, 3, 4, 5, 6 };
-             int objective = 3;
-             int sizeArray = 6;
-             int Result = gebinary(_listArray, 0, sizeArray - 1, objective);
-
+             int[] _listArray = {1,2,3,4,5,6};
+             int objective = 6;
+             int sizeArray = _listArray.Length;
+             int begin =_listArray.Length-_listArray.Length;
+             int Result = gebinary(_listArray, begin, sizeArray , objective);
+            
             if (Result == -1)
             {
-                Console.WriteLine("null element");
+                Console.WriteLine("null element ");
+                
             }
             else
             {
-                Console.WriteLine(" element find" + Result);
+                Console.WriteLine(" element find " + Result);
             }
-
+            
             Console.ReadKey();
             
         }
