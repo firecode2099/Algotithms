@@ -1,0 +1,76 @@
+using System;
+
+
+/*
+ ----------------------
+ Binary search  in sort array recursive way
+-------------------------
+
+ */
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        
+
+        //Get array position num
+        public static int gebinary(int[] _listarray, int left ,int right , int objetive)
+        {
+            
+            //midle num array
+            int midle = left + (right-left) / 2;
+
+            //--search
+
+
+            if (right >= left)
+            {
+               
+
+                //if equals
+                if (_listarray[midle] == objetive)
+                {
+                    return midle;
+
+                }
+                //if more bigger
+                if (_listarray[midle] >= objetive)
+                {
+
+                    return gebinary(_listarray, left, midle - 1, objetive);
+                }
+                else {
+                    return gebinary(_listarray, midle+1, right, objetive);
+                }
+
+            }else
+            {
+                return -1;
+            }
+           
+        }
+
+
+        static void Main(string[] args)
+        {
+             int[] _listArray = { 1, 2, 3, 4, 5, 6 };
+             int objective = 1;
+             int sizeArray = 6;
+             int Result = gebinary(_listArray, 0, sizeArray - 1, objective);
+
+            if (Result == -1)
+            {
+                Console.WriteLine("null element");
+            }
+            else
+            {
+                Console.WriteLine(" element find" + Result);
+            }
+
+            Console.ReadKey();
+            
+        }
+    }
+}
