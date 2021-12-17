@@ -1,0 +1,76 @@
+using System;
+
+
+/*
+ ----------------------
+ binary serach  in sort array iterative way
+-------------------------
+ */
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        
+
+        //Get array position num
+        public static int gebinary(int[] _listarray, int left ,int right , int objetive)
+        {
+            
+            //midle num array
+            int midle = left + (right-left) / 2;
+
+         
+            while (left<right)
+            
+            {
+
+                //if equals
+                if (_listarray[midle] == objetive)
+                {
+                    return midle;
+
+                }
+                
+                //if more lower
+                if (_listarray[midle] < objetive)
+                {
+
+                    return  left =midle+1;//step left on midel and run to right
+                }
+                else
+                {
+
+                    return  right=midle-1;//step left on midel and run to left
+                }
+             
+
+            }
+
+            return -1;
+
+        }
+
+
+        static void Main(string[] args)
+        {
+             int[] _listArray = { 1, 2, 3, 4, 5, 6 };
+             int objective = 3;
+             int sizeArray = 6;
+             int Result = gebinary(_listArray, 0, sizeArray - 1, objective);
+
+            if (Result == -1)
+            {
+                Console.WriteLine("null element");
+            }
+            else
+            {
+                Console.WriteLine(" element find" + Result);
+            }
+
+            Console.ReadKey();
+            
+        }
+    }
+}
